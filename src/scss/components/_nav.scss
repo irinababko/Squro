@@ -1,0 +1,254 @@
+.nav {
+  @include flex(center, center);
+
+  &__list {
+    @include flex(space-between, center);
+    @include size(440px, auto);
+  }
+
+  &__block {
+    @include flex($align-items: center);
+
+    height: 80px;
+
+    &:hover {
+      cursor: pointer;
+
+      .nav__link {
+        color: var(--yellow);
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    height: 100%;
+
+    &:after {
+      @include transition;
+
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 0;
+      height: rem(2px);
+      background-color: var(--yellow);
+    }
+
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &.nav__submenu {
+
+      .submenu {
+        @include size(440px, auto);
+        @include make-spacer(p, 5);
+        @include transition;
+
+        position: absolute;
+        top: rem(80px);
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: rem(20px);
+        background: var(--black-primary);
+        border-bottom: rem(3px) solid var(--yellow);
+
+        &__block {
+          text-align: left;
+        }
+
+        &__button{
+          @include make-spacer(py, 4);
+
+          color: var(--white);
+          height: 80px;
+        }
+
+        &__title {
+          @include make-spacer(mb, 6);
+
+          color: var(--gray-10);
+          font-weight: var(--bold);
+        }
+
+        &__item {
+          @include size(100%, auto);
+          @include make-spacer(py, 1);
+
+          border-bottom: 1px solid var(--gray-200);
+
+          &:hover {
+
+            .submenu__link {
+              color: var(--gray-10);
+            }
+          }
+        }
+
+        &__link {
+          color: var(--white);
+        }
+      }
+
+      &:hover {
+
+        .submenu {
+          display: grid;
+        }
+      }
+    }
+  }
+
+  &__link {
+    @include transition(color);
+    @include font-size(16px);
+
+    position: relative;
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--headings-font-family);
+
+    &:hover {
+      color: var(--yellow);
+    }
+  }
+
+  &--mobile {
+    $top-menu-height: 75px;
+    $bottom-menu-height: 75px;
+
+    @include flex(flex-start, center, column);
+
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .nav {
+
+      &__list {
+        @include make-spacer(py, 0);
+        @include make-spacer(px, 4);
+        @include size(100%, auto);
+
+        display: block;
+      }
+
+      &__block {
+        height: rem(60px);
+      }
+
+      &__link {
+        @include font-size(16px);
+
+        text-transform: uppercase;
+
+        @include media-breakpoint-up(sm) {
+          @include font-size(18px);
+        }
+
+        &:before {
+          @include size(16px);
+          @include make-spacer(mr, 3);
+
+          content: '';
+          display: inline-block;
+          background-color: var(--gray);
+          border-radius: 50%;
+        }
+      }
+
+      &__item {
+        @include make-spacer(m, 0);
+
+        height: auto;
+
+        &:last-child {
+          @include make-spacer(mb, 0);
+        }
+
+        &:nth-child(2) {
+          &:after {
+            height: 0;
+          }
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: rem(1px);
+          background-color: var(--gray-200);
+        }
+
+        &.nav__submenu {
+
+          .submenu {
+            @include make-spacer(pb, 0);
+            @include make-spacer(pt, 3);
+
+            position: relative;
+            top: 0;
+            grid-template-columns: 1fr;
+            border: 0;
+
+            &__button {
+              @include font-size(18px);
+              @include size(100%, 60px);
+
+              text-align: left;
+              text-transform: uppercase;
+
+              &:after {
+                @include make-spacer(mt, 4);
+                @include transition;
+
+                content: '';
+                display: block;
+                width: 100%;
+                height: rem(1px);
+                background-color: var(--gray-200);
+              }
+
+              &:hover {
+                color: var(--yellow);
+
+                &:after {
+                  background-color: var(--yellow);
+                }
+              }
+            }
+
+            &__item {
+              border: 0;
+            }
+
+            &__title {
+              @include make-spacer(mb, 3);
+            }
+          }
+
+          &:hover {
+            &.submenu {
+              position: relative;
+            }
+          }
+        }
+
+        &:hover {
+          &:after {
+            width: 100%;
+            background-color: var(--yellow);
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      max-height: calc(100% - #{$top-menu-height});
+    }
+  }
+}

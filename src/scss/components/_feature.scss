@@ -1,0 +1,82 @@
+.feature {
+  color: var(--white);
+
+  &__wrapper {
+    @include make-spacer(pt, 6);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: rem(32px);
+    border-top: 1px solid var(--gray);
+
+    @include media-breakpoint-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__block {
+    @include make-spacer(p, 7);
+    @include transition;
+
+    height: rem(317px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid var(--yellow);
+
+      .feature__icon {
+        @include transition;
+
+        transform: translateX(70%);
+      }
+    }
+  }
+
+  &__item {
+    @include size(auto);
+  }
+
+  &__icon {
+    @include size(60px);
+    @include make-spacer(mb, 4);
+    @include transition;
+  }
+
+  &__title {
+    @include font-size(22px);
+    @include make-spacer(mb, 4);
+
+    font-weight: var(--bold);
+  }
+
+  &__text {
+    @include font-size(16px);
+  }
+
+  &__info {
+    @include font-size(35px);
+    @include make-spacer(mb, 1);
+
+    position: relative;
+    color: var(--yellow);
+
+    &:before {
+      @include size(40px, 3px);
+
+      content: '';
+      position: absolute;
+      top: rem(-26px);
+      display: block;
+      background-color: var(--yellow);
+
+    }
+  }
+
+}

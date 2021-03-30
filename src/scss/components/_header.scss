@@ -1,0 +1,74 @@
+.header {
+  @include size(100%, var(--header-height));
+  @include font-size(16px);
+  @include make-spacer(px, 3);
+  @include make-spacer(px, 8, md);
+
+  display: grid;
+  grid-template-columns: rem(60px) 1fr auto;
+  align-items: center;
+  z-index: map-get($z-indexes, header);
+  background-color: var(--black-secondary);
+  font-family: var(--headings-font-family);
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr rem(700px) 1fr;
+  }
+
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: 1fr rem(960px) 1fr;
+  }
+
+  &__logo {
+    @include font-size(24px);
+
+    color: var(--yellow);
+  }
+
+  &__auth {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+
+  &__language {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      @include flex($justify-content: flex-end);
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+
+  &__container {
+    @include flex(space-between, center);
+  }
+
+  &__controls {
+    @include flex(center, center);
+    @include make-spacer(pt, 1);
+
+    border-left: 1px solid var(--grey-500);
+
+    &.is-disabled {
+      pointer-events: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.dropdown {
+  position: relative;
+  color: var(--white);
+  width: 100%;
+  z-index: map-get($z-indexes, dropdown);
+
+  &__trigger {
+    @include flex($align-items: center);
+
+    color: var(--black-primary);
+    font-family: var(--headings-font-family);
+
+    &.is-open {
+
+      + .dropdown__list {
+        transform: translateY(0) translateX(-50%);
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .dropdown__arrow {
+        transform: rotateZ(-180deg);
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      color: var(--white);
+    }
+  }
+
+  &__arrow {
+    @include transition(transform);
+
+    transform: rotateZ(0deg);
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  &__label {
+    @include make-spacer(mr, 2);
+
+    font-family: var(--headings-font-family);
+    pointer-events: none;
+  }
+
+  &__list {
+    @include make-spacer(py, 3);
+    @include transition(#{visibility, transform, opacity});
+
+    position: absolute;
+    top: rem(28px);
+    left: 50%;
+    transform: translateY(-15px) translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 3;
+    background-color: var(--white);
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      top: rem(32px);
+      width: auto;
+    }
+  }
+
+  &__button {
+    @include font-size(16px);
+    @include make-spacer(px, 3);
+    @include make-spacer(py, 1);
+    @include transition(color);
+
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: var(--black-primary);
+    font-family: var(--headings-font-family);
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--yellow);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    width: auto;
+  }
+}

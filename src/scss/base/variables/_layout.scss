@@ -1,0 +1,12 @@
+:root {
+  --header-height: 80px;
+  --container-width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    --header-height: 80px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --container-width: 960px;
+  }
+}

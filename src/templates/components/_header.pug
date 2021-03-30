@@ -1,0 +1,20 @@
+header.header
+
+  a(href="/" class="header__logo" id="logo") Logo
+
+  .header__container
+
+    .header__nav
+      +nav
+
+    .header__auth
+      button(class="button button--link", type="button") Sign in
+      button(class="button button--secondary button--md", type="button") Registration
+
+  .header__language
+    +languages
+
+  .header__controls
+    button(class="hamburger hamburger--slider header__hamburger js-menu-toggle", type="button", id="hamburger")
+      span(class="hamburger-box")
+        span(class="hamburger-inner")

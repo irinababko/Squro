@@ -1,0 +1,43 @@
+// Colors
+
+.u-color-white {
+  color: var(--white);
+}
+
+.u-color-yellow {
+  color: var(--yellow);
+}
+
+.u-color-gray {
+  color: var(--gray);
+}
+
+// Text Align
+
+.u-text-center {
+  text-align: center;
+
+  &-sm {
+    @include media-breakpoint-up(sm) {
+      text-align: center;
+    }
+  }
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+// Font Weight
+
+.u-text-bold {
+  font-weight: var(--bold);
+}
+
+.u-text-extra-bold {
+  font-weight: var(--extra-bold);
+}
+
+.u-text-uppercase {
+  text-transform: uppercase;
+}

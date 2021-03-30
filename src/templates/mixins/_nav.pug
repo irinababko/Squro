@@ -1,0 +1,80 @@
+mixin nav(mod)
+  nav(class=(`nav ${mod ? `nav--${mod}` : ''}`))
+    ul.nav__list
+      if mod !== 'mobile'
+        li.nav__item.nav__submenu
+          button(class="submenu__button" type="button")
+            span.submenu__label Home
+            .submenu
+              .submenu__block
+                p.submenu__title Submenu 01
+                  ul.submenu__list
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+              .submenu__block
+                p.submenu__title Submenu 02
+                  ul.submenu__list
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum dolor
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") About us
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Our news
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Blog
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Contacts
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Faq
+      else
+        li.nav__item
+          .nav__block
+            button(class="button button--link nav__link u-pl-0" type="button") Sign in
+        li.nav__item.nav__submenu
+          .submenu__block
+            button(class="submenu__button nav__link" type="button")
+              span.submenu__label Home
+            .submenu
+              .submenu__block
+                p.submenu__title Submenu 01
+                  ul.submenu__list
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+              .submenu__block
+                p.submenu__title Submenu 02
+                  ul.submenu__list
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum
+                    li.submenu__item
+                      a.submenu__link.js-pages(href='/') Lorem ipsum dolor
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") About us
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Our news
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Blog
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Contacts
+        li.nav__item
+          .nav__block
+            a.nav__link.js-pages(href="/") Faq
+

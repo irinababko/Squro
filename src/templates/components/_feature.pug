@@ -1,0 +1,13 @@
+section.section.u-bg-gray-100
+  .container.content
+    .feature
+      .section__title Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+      .feature__wrapper
+        each item in featureSection
+          .feature__item
+            .feature__info=item.info
+            .feature__title=item.title
+            .feature__block(style=`background-image: url(/img/bg-feature.png);`)
+              +icon(item.icon, modClass = 'u-ml-10 u-color-yellow feature__icon')
+              .feature__title=item.subtitle
+              .feature__text=item.text
