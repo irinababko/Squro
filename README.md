@@ -1,4 +1,4 @@
-# IT-land
+# Squro
 
 ## Start project
 
