@@ -1,7 +1,9 @@
+@import "src/fonts/Gilroy-Regular.woff";
+
 @font-face {
   font-family: 'Gilroy-Regular';
   src: local('Gilroy-Regular'),
-  url('../fonts/Gilroy-Regular.woff') format('woff');
+  url('../../fonts/Gilroy-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
